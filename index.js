@@ -112,8 +112,8 @@ class Character {
 }
 
 // RPG Class Creation
-const rogue = new Character('Rogue',75,1,1.08,5,25);
-const warrior = new Character('Warrior',125,1.1,.85,7,30);
+const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25);
+const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30);
 console.log(rogue);
 console.log(warrior);
 
@@ -129,14 +129,14 @@ function getRogueDmg(min, max) {
     min = rogue.dmgMin;
     max = rogue.dmgMax;
     let rogueDmg = Math.floor(Math.random() * (max - min + 1)) + min;
-    rogueDmg = rogueDmg * rogue.damageMod;
+    rogueDmg = Math.round(rogueDmg * rogue.damageMod);
     return rogueDmg;
 }
 function getWarrDmg(min, max) {
     min = warrior.dmgMin;
     max = warrior.dmgMax;
     let warrDmg = Math.floor(Math.random() * (max - min + 1)) + min;
-    warrDmg = warrDmg * warrior.damageMod;
+    warrDmg = Math.round(warrDmg * warrior.damageMod);
     return warrDmg;
 }
 console.log(`Rogue Damage: ${getRogueDmg(rogue.dmgMin, rogue.dmgMax)}`);
@@ -156,15 +156,15 @@ console.log(`Attacker Roll: ${attackRoll}`);
 console.log(`Defender Roll: ${defenseRoll}`);
 if (attackRoll === defenseRoll) {
     console.log(`Tied with roll of ${attackRoll}`);
-} else if 
+} else if
     (attackRoll > defenseRoll) {
     defenderRemHealth = defenderStartHealth - attackDamage;
     console.log(`Attacker wins ${attackRoll} to ${defenseRoll}, ${attackDamage} damage dealt.
-    Defender health remaining: ${defenderRemHealth}`);
+Defender health remaining: ${defenderRemHealth}`);
 } else {
     attackerRemHealth = attackerStartHealth - retalDamage;
-console.log(`Defender wins ${defenseRoll} to ${attackRoll}, ${retalDamage} counter damage dealt.
-    Attacker health remaining: ${attackerRemHealth}`);
+    console.log(`Defender wins ${defenseRoll} to ${attackRoll}, ${retalDamage} counter damage dealt.
+Attacker health remaining: ${attackerRemHealth}`);
 }
 
 function Combat(char1, char2) {
