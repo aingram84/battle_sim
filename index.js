@@ -99,7 +99,50 @@ if (typeof window != 'undefined') {
     }
 };
 
-// console.log(d20.roll("4d6"));
+// RPG Class Skeleton
+class Character {
+    constructor(className, classStartHealth, defenseMod, damageMod, dmgMin, dmgMax) {
+        this.className = className;
+        this.classStartHealth = classStartHealth;
+        this.defenseMod = defenseMod;
+        this.damageMod = damageMod;
+        this.dmgMin = dmgMin;
+        this.dmgMax = dmgMax;
+    }
+}
+
+// RPG Class Creation
+const rogue = new Character('Rogue',75,1,1.08,5,25);
+const warrior = new Character('Warrior',125,1.1,.85,7,30);
+console.log(rogue);
+console.log(warrior);
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    let random100 = Math.floor(Math.random() * (max - min + 1)) + min;
+    return random100;
+}
+// console.log(getRandomInt(1,101));
+
+function getRogueDmg(min, max) {
+    min = rogue.dmgMin;
+    max = rogue.dmgMax;
+    let rogueDmg = Math.floor(Math.random() * (max - min + 1)) + min;
+    rogueDmg = rogueDmg * rogue.damageMod;
+    return rogueDmg;
+}
+function getWarrDmg(min, max) {
+    min = warrior.dmgMin;
+    max = warrior.dmgMax;
+    let warrDmg = Math.floor(Math.random() * (max - min + 1)) + min;
+    warrDmg = warrDmg * warrior.damageMod;
+    return warrDmg;
+}
+console.log(`Rogue Damage: ${getRogueDmg(rogue.dmgMin, rogue.dmgMax)}`);
+console.log(`Warrior Damage: ${getWarrDmg(warrior.dmgMin, warrior.dmgMax)}`);
+
+
 
 let attackRoll = d20.roll("4d6");
 let defenseRoll = d20.roll("4d6");
@@ -122,4 +165,9 @@ if (attackRoll === defenseRoll) {
     attackerRemHealth = attackerStartHealth - retalDamage;
 console.log(`Defender wins ${defenseRoll} to ${attackRoll}, ${retalDamage} counter damage dealt.
     Attacker health remaining: ${attackerRemHealth}`);
+}
+
+function Combat(char1, char2) {
+    char1 = rogue;
+    char2 = warrior;
 }
