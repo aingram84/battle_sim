@@ -1,0 +1,33 @@
+{
+  "name": "d20",
+  "version": "1.4.1",
+  "description": "Library for rolling dice based on dice-syntax used in RPGs.",
+  "main": "d20.js",
+  "bin": {
+    "d20": "./bin/d20"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michaelenger/d20.js.git"
+  },
+  "keywords": [
+    "dice",
+    "rpg",
+    "d20"
+  ],
+  "author": "Michael Enger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelenger/d20.js/issues"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "expect": "^0.1.1"
+  },
+  "dependencies": {
+    "commander": "^2.8.1"
+  }
+}
