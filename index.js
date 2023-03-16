@@ -101,7 +101,7 @@ if (typeof window != 'undefined') {
 
 // RPG Class Skeleton
 class Character {
-    constructor(className, classStartHealth, defenseMod, damageMod, dmgMin, dmgMax, armor, weaponArray) {
+    constructor(className, classStartHealth, defenseMod, damageMod, dmgMin, dmgMax, armor, weaponArray, attackArray) {
         this.className = className;
         this.classStartHealth = classStartHealth;
         this.defenseMod = defenseMod;
@@ -110,24 +110,30 @@ class Character {
         this.dmgMax = dmgMax;
         this.armor = armor;
         this.weapon = weaponArray;
+        this.attack = attackArray;
     }
     // Weapon Arrays
 getWeapon() {
     return this.weapon[getRandomInt(0, this.weapon.length-1)];
 }
+getAttack() {
+    return this.attack[getRandomInt(0, this.attack.length-1)];
+}
 }
 
 
 
 
-const rogueWeaponArray = ["dagger", "sword", "axe", "fist weapon"]
-const warrWeaponArray = ["2H Sword", "sword", "2h axe", "fist weapon", "2H Mace"]
+const rogueWeaponArray = ["Dagger", "Sword", "Axe", "Fist Weapon"]
+const rogueAttackArray = ["Sinister Strike", "Mutilate", "Backstab", "Eviscerate", "Garrote"]
+const warrWeaponArray = ["2H Sword", "Sword", "2h Axe", "Fist Weapon", "2H Mace", "Polearm", "Axe", "Mace"]
+const warriorAttackArray = ["Mortal Strike", "Slam", "Execute", "Rampage", "Devastate"]
 
 // RPG Class Creation
-const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray);
-const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray);
-console.log(rogue);
-console.log(warrior);
+const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray, rogueAttackArray);
+const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray, warriorAttackArray);
+// console.log(rogue);
+// console.log(warrior);
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -183,7 +189,7 @@ console.log(`${rogue.className} used ${rogueWeaponArray[getRandomInt(0, rogueWea
 ${warrior.className} used ${warrWeaponArray[getRandomInt(0, warrWeaponArray.length-1)]}.`);
 console.log(`${rogue.className} used ${rogue.getWeapon()}.`)
 console.log(`${warrior.className} used ${warrior.getWeapon()}.`)
-resultLabel(rogue);
+// resultLabel(rogue);
 
 function Combat(char1, char2) {
     char1 = rogue;
@@ -191,14 +197,28 @@ function Combat(char1, char2) {
 }
 
 function resultLabel() {
-    let abc = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray);;
-    let p1 = document.querySelectorAll("div.turnResults > p")[0];
-    let p2 = document.querySelectorAll("div.turnResults > p")[1];
-    let p3 = document.querySelectorAll("div.turnResults > p")[2];
-    let className = document.querySelectorAll("h2")[0];
+    let abc = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray, rogueAttackArray);
+    let def = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray, warriorAttackArray);
+    let className1 = document.querySelectorAll("h2")[0];
+    let className2 = document.querySelectorAll("h2")[1];
+    let p1 = document.querySelectorAll("div.turnResults1 > p")[0];
+    let p2 = document.querySelectorAll("div.turnResults1 > p")[1];
+    let p3 = document.querySelectorAll("div.turnResults1 > p")[2];
+    let p4 = document.querySelectorAll("div.turnResults2 > p")[0];
+    let p5 = document.querySelectorAll("div.turnResults2 > p")[1];
+    let p6 = document.querySelectorAll("div.turnResults2 > p")[2];
+    let p7 = document.querySelectorAll("div.turnResults1 > p")[3];
+    let p8 = document.querySelectorAll("div.turnResults2 > p")[3];
+    
 
-    className.textContent = abc.className;
+    className1.textContent = abc.className;
+    className2.textContent = def.className;
     p1.textContent = `Weapon Used: ${abc.getWeapon()}`;
+    p8.textContent = `Attack Used: ${abc.getAttack()}`;
     p2.textContent = `Damage Modifier: ${abc.damageMod}`;
     p3.textContent = `Starting Health: ${abc.classStartHealth}`;
+    p4.textContent = `Weapon Used: ${def.getWeapon()}`;
+    p7.textContent = `Attack Used: ${def.getAttack()}`;
+    p5.textContent = `Damage Modifier: ${def.damageMod}`;
+    p6.textContent = `Starting Health: ${def.classStartHealth}`;
 }
