@@ -101,19 +101,26 @@ if (typeof window != 'undefined') {
 
 // RPG Class Skeleton
 class Character {
-    constructor(className, classStartHealth, defenseMod, damageMod, dmgMin, dmgMax) {
+    constructor(className, classStartHealth, defenseMod, damageMod, dmgMin, dmgMax, armor, weaponArray) {
         this.className = className;
         this.classStartHealth = classStartHealth;
         this.defenseMod = defenseMod;
         this.damageMod = damageMod;
         this.dmgMin = dmgMin;
         this.dmgMax = dmgMax;
+        this.armor = armor;
+        this.weapon = weaponArray;
     }
 }
 
+
+// Weapon Arrays
+const rogueWeapon = ["dagger", "sword", "axe", "fist weapon"]
+const warrWeapon = ["2H Sword", "sword", "2h axe", "fist weapon", "2H Mace"]
+
 // RPG Class Creation
-const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25);
-const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30);
+const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeapon);
+const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeapon);
 console.log(rogue);
 console.log(warrior);
 
@@ -166,6 +173,9 @@ Defender health remaining: ${defenderRemHealth}`);
     console.log(`Defender wins ${defenseRoll} to ${attackRoll}, ${retalDamage} counter damage dealt.
 Attacker health remaining: ${attackerRemHealth}`);
 }
+// console.log(`${rogue.className} used ${rogueWeapon[2]}
+console.log(`${rogue.className} used ${rogueWeapon[getRandomInt(0, rogueWeapon.length-1)]}
+${warrior.className} used ${warrWeapon[getRandomInt(0, warrWeapon.length-1)]}`);
 
 function Combat(char1, char2) {
     char1 = rogue;
