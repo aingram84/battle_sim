@@ -75,14 +75,29 @@ button {
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
-    width: 20%;
-    flex-direction: column;
+    width: 50%;
+    flex-direction: row;
     margin-left: auto;
     margin-right: auto;
 }
-.matchupHeaders {
+/* .matchupHeaders {
     display: flex;
     justify-content: center;
     text-decoration: underline;
-    background-color: rgba(100,100,100,.25) ;
+    background-color: rgba(100,100,100,.25);
+} */
+.turnResults1 h2, .turnResults2 h2 {
+    justify-content: center;
+    text-decoration: underline;
+    background-color: rgba(100,100,100,.25);
+    margin-bottom: 3%;
+}
+
+.turnResults1 {
+    margin: 2%;
+    width: 100%;
+}
+.turnResults2 {
+    margin: 2%;
+    width: 100%;
 }

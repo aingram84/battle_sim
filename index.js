@@ -197,8 +197,8 @@ function Combat(char1, char2) {
 }
 
 function resultLabel() {
-    let abc = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray, rogueAttackArray);
-    let def = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray, warriorAttackArray);
+    let abc = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray, warriorAttackArray);
+    let def = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray, rogueAttackArray);
     let className1 = document.querySelectorAll("h2")[0];
     let className2 = document.querySelectorAll("h2")[1];
     let p1 = document.querySelectorAll("div.turnResults1 > p")[0];
@@ -214,11 +214,11 @@ function resultLabel() {
     className1.textContent = abc.className;
     className2.textContent = def.className;
     p1.textContent = `Weapon Used: ${abc.getWeapon()}`;
-    p8.textContent = `Attack Used: ${abc.getAttack()}`;
+    p7.textContent = `Attack Used: ${abc.getAttack()}`;
     p2.textContent = `Damage Modifier: ${abc.damageMod}`;
     p3.textContent = `Starting Health: ${abc.classStartHealth}`;
     p4.textContent = `Weapon Used: ${def.getWeapon()}`;
-    p7.textContent = `Attack Used: ${def.getAttack()}`;
+    p8.textContent = `Attack Used: ${def.getAttack()}`;
     p5.textContent = `Damage Modifier: ${def.damageMod}`;
     p6.textContent = `Starting Health: ${def.classStartHealth}`;
 }
