@@ -111,16 +111,21 @@ class Character {
         this.armor = armor;
         this.weapon = weaponArray;
     }
+    // Weapon Arrays
+getWeapon() {
+    return this.weapon[getRandomInt(0, this.weapon.length-1)];
+}
 }
 
 
-// Weapon Arrays
-const rogueWeapon = ["dagger", "sword", "axe", "fist weapon"]
-const warrWeapon = ["2H Sword", "sword", "2h axe", "fist weapon", "2H Mace"]
+
+
+const rogueWeaponArray = ["dagger", "sword", "axe", "fist weapon"]
+const warrWeaponArray = ["2H Sword", "sword", "2h axe", "fist weapon", "2H Mace"]
 
 // RPG Class Creation
-const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeapon);
-const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeapon);
+const rogue = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray);
+const warrior = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray);
 console.log(rogue);
 console.log(warrior);
 
@@ -161,6 +166,7 @@ let defenderStartHealth = 100;
 let defenderRemHealth = 100;
 console.log(`Attacker Roll: ${attackRoll}`);
 console.log(`Defender Roll: ${defenseRoll}`);
+
 if (attackRoll === defenseRoll) {
     console.log(`Tied with roll of ${attackRoll}`);
 } else if
@@ -173,11 +179,26 @@ Defender health remaining: ${defenderRemHealth}`);
     console.log(`Defender wins ${defenseRoll} to ${attackRoll}, ${retalDamage} counter damage dealt.
 Attacker health remaining: ${attackerRemHealth}`);
 }
-// console.log(`${rogue.className} used ${rogueWeapon[2]}
-console.log(`${rogue.className} used ${rogueWeapon[getRandomInt(0, rogueWeapon.length-1)]}
-${warrior.className} used ${warrWeapon[getRandomInt(0, warrWeapon.length-1)]}`);
+console.log(`${rogue.className} used ${rogueWeaponArray[getRandomInt(0, rogueWeaponArray.length-1)]}.
+${warrior.className} used ${warrWeaponArray[getRandomInt(0, warrWeaponArray.length-1)]}.`);
+console.log(`${rogue.className} used ${rogue.getWeapon()}.`)
+console.log(`${warrior.className} used ${warrior.getWeapon()}.`)
+resultLabel(rogue);
 
 function Combat(char1, char2) {
     char1 = rogue;
     char2 = warrior;
+}
+
+function resultLabel() {
+    let abc = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray);;
+    let p1 = document.querySelectorAll("div.turnResults > p")[0];
+    let p2 = document.querySelectorAll("div.turnResults > p")[1];
+    let p3 = document.querySelectorAll("div.turnResults > p")[2];
+    let className = document.querySelectorAll("h2")[0];
+
+    className.textContent = abc.className;
+    p1.textContent = `Weapon Used: ${abc.getWeapon()}`;
+    p2.textContent = `Damage Modifier: ${abc.damageMod}`;
+    p3.textContent = `Starting Health: ${abc.classStartHealth}`;
 }

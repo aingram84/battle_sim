@@ -46,3 +46,28 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 2.4rem;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+p {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    margin-top: 0.5%;
+}
+button {
+    display: flex;
+    /* justify-self: center; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    font-size: 2rem;
+}
