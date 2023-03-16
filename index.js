@@ -162,6 +162,7 @@ console.log(`Warrior Damage: ${getWarrDmg(warrior.dmgMin, warrior.dmgMax)}`);
 
 
 
+
 let attackRoll = d20.roll("4d6");
 let defenseRoll = d20.roll("4d6");
 let attackDamage = attackRoll - defenseRoll;
@@ -221,4 +222,16 @@ function resultLabel() {
     p8.textContent = `Attack Used: ${def.getAttack()}`;
     p5.textContent = `Damage Modifier: ${def.damageMod}`;
     p6.textContent = `Starting Health: ${def.classStartHealth}`;
+}
+
+function diceRoll() {
+    let abc = new Character('Warrior', 125, 1.1, .85, 7, 30, 'plate', warrWeaponArray, warriorAttackArray);
+    let def = new Character('Rogue', 75, 1, 1.08, 5, 25, 'leather', rogueWeaponArray, rogueAttackArray);
+    let attackRoll = d20.roll("4d6");
+    let defenseRoll = d20.roll("4d6");
+    let dice1 = document.querySelectorAll("div.diceRoll1 > p")[0];
+    let dice2 = document.querySelectorAll("div.diceRoll2 > p")[0];
+
+    dice1.textContent = `${abc.className}'s roll: ${attackRoll}`
+    dice2.textContent = `${def.className}'s roll: ${defenseRoll}`
 }

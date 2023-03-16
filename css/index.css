@@ -101,3 +101,21 @@ button {
     margin: 2%;
     width: 100%;
 }
+.diceHolder {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 5px solid red */
+}
+
+.diceRoll1 p, .diceRoll2 p {
+    display: flex;
+    flex: row;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
