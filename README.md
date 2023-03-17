@@ -1,2 +1,5 @@
-# battle_sim
-A recreation of the average RPG battle
+# battle_sim  
+
+## To-Do  
+[] Add Mage class  
+[] Add Paladin class
