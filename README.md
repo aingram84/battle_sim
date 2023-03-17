@@ -2,4 +2,4 @@
 
 ## To-Do  
 [] Add Mage class  
-[] Add Paladin class
+[x] Add Paladin class
